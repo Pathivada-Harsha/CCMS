@@ -21,9 +21,7 @@ SessionManager::checkSession();
 			include(BASE_PATH."dropdown-selection/group-device-list.php");
 			?>
 			<div class="row">
-				<div class="col-12 p-0">
-					<button class="btn"></button>
-				</div>
+				
 				<div class="col-12 p-0">
 					<div class="table-responsive rounded mt-2 border">
 						<table class="table table-striped table-bordered table-hover table-type-1 table-sticky-header w-100">

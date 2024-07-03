@@ -7,64 +7,64 @@
             </div>
             
             <div class="modal-body">
-            <div class="col-12 p-0">
-                <div class="table-responsive-1 rounded mt-2 border">
-                <table class="table table-striped table-type-1 w-100 " id="notinstalledDeviceTable">
-                    <thead>
-                        <tr>
-                            <th class="bg-logo-color text-white"  style="width: 30px !important;">Select</th>
-                            <th class="bg-logo-color text-white" >Device ID</th>
-                            <th class="bg-logo-color text-white" >Device Name</th>
+                <div class="col-12 p-0">
+                    <div class="table-responsive-1 rounded mt-2 border">
+                        <table class="table table-striped table-type-1 w-100 text-center" id="notinstalledDeviceTable">
+                            <thead>
+                                <tr>
+                                    <th class="bg-logo-color text-white"  style="width: 30px !important;">Select</th>
+                                    <th class="bg-logo-color text-white" >Device ID</th>
+                                    <th class="bg-logo-color text-white" >Device Name</th>
 
-                            <th class="bg-logo-color text-white" >Status</th>
-                            <th class="bg-logo-color text-white" >Location</th>
-                            <th class="bg-logo-color text-white" >Date</th> <!-- New column for date -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" name="notinstalledDevice" value="Device 1"></td>
-                            <td>Device 1</td>
-                            <td> CCMS 1</td>
-                            <td>not installed</td>
-                            <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
-                            <td>2024-06-09</td> 
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="notinstalledDevice" value="Device 2"></td>
-                            <td>Device 2</td>
-                            <td> CCMS 1</td>
-                            <td>not installed</td>
-                            <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
-                            <td>2024-06-09</td> 
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
-                            <td>Device 3</td>
-                            <td> CCMS 1</td>
-                            <td>not installed</td>
-                            <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
-                            <td>2024-06-09</td> 
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
-                            <td>Device 3</td>
-                            <td> CCMS 1</td>
-                            <td>not installed</td>
-                            <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
-                            <td>2024-06-09</td> 
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
-                            <td>Device 3</td>
-                            <td> CCMS 1</td>
-                            <td>not installed</td>
-                            <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
-                            <td>2024-06-09</td> 
-                        </tr>
-                    </tbody>
-                </table>
-                </div>
+                                    <th class="bg-logo-color text-white" >Status</th>
+                                    <th class="bg-logo-color text-white" >Location</th>
+                                    <th class="bg-logo-color text-white" >Date</th> 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" name="notinstalledDevice" value="Device 1"></td>
+                                    <td>Device 1</td>
+                                    <td> CCMS 1</td>
+                                    <td>not installed</td>
+                                    <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
+                                    <td>2024-06-09</td> 
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="notinstalledDevice" value="Device 2"></td>
+                                    <td>Device 2</td>
+                                    <td> CCMS 1</td>
+                                    <td>not installed</td>
+                                    <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
+                                    <td>2024-06-09</td> 
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
+                                    <td>Device 3</td>
+                                    <td> CCMS 1</td>
+                                    <td>not installed</td>
+                                    <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
+                                    <td>2024-06-09</td> 
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
+                                    <td>Device 3</td>
+                                    <td> CCMS 1</td>
+                                    <td>not installed</td>
+                                    <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
+                                    <td>2024-06-09</td> 
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="notinstalledDevice" value="Device 3"></td>
+                                    <td>Device 3</td>
+                                    <td> CCMS 1</td>
+                                    <td>not installed</td>
+                                    <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
+                                    <td>2024-06-09</td> 
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
             <div class="modal-footer">

@@ -44,7 +44,7 @@ class SessionManager {
             }
             else
             {
-                window.location.href = '0/index.php';
+                window.location.href = 'login.php';
             }
             </script>";
             exit();

@@ -1,52 +1,53 @@
 
 
 // Function to add a new device
-    function addDevice() {
+     function addDevice() {
+        // Get form data
         var deviceName = document.getElementById('deviceName').value;
         var deviceID = document.getElementById('deviceID').value;
         var groupArea = document.getElementById('groupArea').value;
         var capacity = document.getElementById('capacity').value;
         var activationCode = document.getElementById('activationCode').value;
-
-    // Add the new device to the table
-        var table = document.querySelector('.styled-table tbody');
-        var newRow = table.insertRow();
-
-        newRow.innerHTML = ' <td>' + deviceName + '</td> <td>' + deviceID + '</td> <td>Installed</td> <td>' + getCurrentDate() + '</td> <td>' + capacity + '</td> <td class="col-1">' + getCurrentTime() + ' '+ getCurrentDate() + '</td> <td>Off</td> <td>Manual</td> <td>Active</td> <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td> <td><button class="btn btn-info btn-sm" onclick="openLightsModal(this)">0</button></td> <td><i class="bi bi-trash-fill text-danger" onclick="deleteRow(this)"></i></td> ';
-
-    }
-
-// Function to get current date in DD-MM-YYYY format
-    function getCurrentDate() {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0');
-        var yyyy = today.getFullYear();
-        return dd + '-' + mm + '-' + yyyy;
-    }
-
-// Function to get current time in HH:mm:ss format
-    function getCurrentTime() {
+    
+        // Generate current date and time
         var now = new Date();
-        var hh = String(now.getHours()).padStart(2, '0');
-        var mm = String(now.getMinutes()).padStart(2, '0');
-        var ss = String(now.getSeconds()).padStart(2, '0');
-        return hh + ':' + mm + ':' + ss;
+        var day = String(now.getDate()).padStart(2, '0');
+        var month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        var year = now.getFullYear();
+        var date = day + '-' + month + '-' + year;
+        var time = now.toLocaleTimeString('en-GB');
+        var dateTime = time + ' ' + date;
+    
+        // Create new row
+        var newRow = document.createElement('tr');
+        newRow.innerHTML = 
+        '<td>' + deviceName + '</td>' +
+        '<td>' + deviceID + '</td>' +
+        '<td>Installed</td>' +
+        '<td>' + date + '</td>' +
+        '<td>' + capacity + '</td>' +
+        '<td class="col-size-1">' + dateTime + '</td>' +
+        '<td>On</td>' +
+        '<td>Automatic</td>' +
+        '<td>Active</td>' +
+        '<td><a href="https://www.google.com/maps?q=0,0" target="_blank">Location</a></td>' +
+        '<td>' +
+            '<button class="btn btn-info btn-sm p-0 px-2" onclick="openLightsModal(this)">0</button>' +
+        '</td>' +
+        '<td><i class="bi bi-trash-fill text-danger" onclick="deleteRow(this)"></i></td>';
+    
+    
+        // Append new row to table
+        document.getElementById('deviceTableBody').appendChild(newRow);
+    
+        // Clear form fields
+        document.getElementById('addDeviceForm').reset();
     }
-// close button in Add Model
-    function closeModal(modalId) {
-        var modal = document.getElementById(modalId);
-        modal.classList.remove('show');
-        modal.setAttribute('aria-hidden', 'true');
-        modal.setAttribute('style', 'display: none');
-        var modalBackdrop = document.getElementsByClassName('modal-backdrop')[0];
-        modalBackdrop.parentNode.removeChild(modalBackdrop);
-        document.body.classList.remove('modal-open');
-    }
-// Function to delete a row
+    
     function deleteRow(element) {
         element.closest('tr').remove();
     }
+
 
 //Installed Lights Column Buttons Open Function
     function openLightsModal(element) {

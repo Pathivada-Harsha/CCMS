@@ -9,7 +9,7 @@
             <div class="modal-body">
                 <!-- Table for displaying installed lights -->
                 <div class="table-responsive-1 rounded mt-2 border">
-                    <table class="table table-striped styled-table w-100 ">
+                    <table class="table table-striped styled-table w-100 text-center">
                         <thead>
                             <tr>
                                 <th class="bg-logo-color text-white">Brand Name</th>

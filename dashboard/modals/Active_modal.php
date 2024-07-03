@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="col-12 p-0">
                     <div class="table-responsive-1 rounded mt-2 border ">
-                        <table class="table table-striped table-type-1 w-100 ">
+                        <table class="table table-striped table-type-1 w-100 text-center">
                             <thead>
                                 <tr>
                                     <th class="bg-logo-color text-white" scope="col">Device ID</th>
@@ -26,35 +26,35 @@
                                     
                                     <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
                                     <td>2024-06-09</td>
-                                    <td><button class="btn btn-info btn-sm" onclick="openOpenviewModal()" >View</button></td>
+                                    <td><button class="btn btn-info btn-sm p-0 px-2 " onclick="openOpenviewModal()" >View</button></td>
                                 </tr>   
                                 <tr>
                                     <td>Device 2</td>
                                     <td> CCMS 1</td>
                                     <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
                                     <td>2024-06-09</td>
-                                    <td><button class="btn btn-info btn-sm" onclick="openOpenviewModal()" >View</button></td>
+                                    <td><button class="btn btn-info btn-sm p-0 px-2 " onclick="openOpenviewModal()" >View</button></td>
                                 </tr> 
                                 <tr>
                                     <td>Device 3</td>
                                     <td> CCMS 1</td>
                                     <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
                                     <td>2024-06-09</td>
-                                    <td><button class="btn btn-info btn-sm" onclick="openOpenviewModal()" >View</button></td>
+                                    <td><button class="btn btn-info btn-sm p-0 px-2 " onclick="openOpenviewModal()" >View</button></td>
                                 </tr>    
                                 <tr>
                                     <td>Device 3</td>
                                     <td> CCMS 1</td>
                                     <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
                                     <td>2024-06-09</td>
-                                    <td><button class="btn btn-info btn-sm" onclick="openOpenviewModal()" >View</button></td>
+                                    <td><button class="btn btn-info btn-sm p-0 px-2 " onclick="openOpenviewModal()" >View</button></td>
                                 </tr> 
                                 <tr>
                                     <td>Device 3</td>
                                     <td> CCMS 1</td>
                                     <td><a href="https://www.google.com/maps?q=17.467754,%2078.603072" target="_blank">Location</a></td>
                                     <td>2024-06-09</td>
-                                    <td><button class="btn btn-info btn-sm" onclick="openOpenviewModal()" >View</button></td>
+                                    <td><button class="btn btn-info btn-sm p-0 px-2  " onclick="openOpenviewModal()" >View</button></td>
                                 </tr>  
                             </tbody>
                         </table>
@@ -67,7 +67,3 @@
         </div>
     </div>
 </div>
- <?php
-// include("../js_modal_scripts/viewbutton.js");
-include("viewbutton_modal.php");
-?> 

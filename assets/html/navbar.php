@@ -34,7 +34,8 @@
         <ul class="dropdown-menu text-small shadow dropdown-menu-end" aria-labelledby="navbarDropdown">
           <li class="bg-primary py-2"><h6 class=" mb-0 ms-2"> Welcome <strong>ISTLABS</strong></h6></li>
           <li><a class="dropdown-item bs-primary" href="#">Settings</a></li>
-          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+          <li><a class="dropdown-item" href="addnewuser.php">Add New User</a></li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
         </ul>

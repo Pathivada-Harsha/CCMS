@@ -12,7 +12,6 @@ SessionManager::checkSession();
   ?>
   <div class="d-flex flex-column flex-shrink-0 p-3 main-content ">
     <div class="container-fluid">
-
       <div class="row d-flex align-items-center">
         <div class="col-12 p-0">
           <p class="m-0 p-0"><span class="text-body-tertiary">Pages / </span><span>Dashboard</span></p>
@@ -29,6 +28,8 @@ SessionManager::checkSession();
 
       </div>
     </div>
+
+    <!-- Modals links -->
   </main>
   <script src="<?php echo BASE_PATH;?>assets/js/sidebar-menu.js"></script>
   <?php

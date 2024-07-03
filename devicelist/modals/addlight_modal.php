@@ -1,4 +1,4 @@
-<!-- Form for adding new lights -->
+
 <div class="modal fade " id="addLightModal" tabindex="1" aria-labelledby="addLightModalLabel" aria-hidden="true" style="background: rgb(0, 0,0, 0.8 )">
     <div class="modal-dialog ">
         <div class="modal-content ">

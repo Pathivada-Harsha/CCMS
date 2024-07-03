@@ -25,11 +25,11 @@ SessionManager::checkSession();
       include(BASE_PATH."dropdown-selection/device-list.php");
       ?>
       <div class="row">
-        <div class="col-lg-7">
+        <div class="col-lg-8">
           <div class="row pe-0 pe-lg-2 h-100">
             <div class="col-12 rounded mt-2 p-0 ">
               <div class="row">
-                <div class="col-4">
+                <div class="col-4 pointer pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#TotalModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1"><i class="bi bi-bar-chart-fill h4"></i> Total</p>
@@ -38,7 +38,7 @@ SessionManager::checkSession();
                   </div>
                 </div>
 
-                <div class="col-4">
+                <div class="col-4 pointer pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#installedModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1"><i class="bi bi-check-circle-fill h4"></i> Installed</p>
@@ -46,7 +46,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 pointer pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#notinstalledModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1"><i class="bi bi-x-circle-fill h4"></i> Not-installed</p>
@@ -59,7 +59,7 @@ SessionManager::checkSession();
 
             <div class="col-12 rounded mt-3 p-0">
               <div class="row">
-                <div class="col-xl-3 col-6">
+                <div class="col-xl-3 col-6 pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#activeModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1 text-success"><i class="bi bi-lightbulb-fill h4"></i> Active</p>
@@ -68,7 +68,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-6">
+                <div class="col-xl-3 col-6 pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#activePoorNetworkModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1 text-danger-emphasis text-opacity-25"><i class="bi bi-exclamation-triangle-fill h4"></i> Poor N/W</p>
@@ -77,7 +77,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-6 mt-3 mt-xl-0" >
+                <div class="col-xl-3 col-6 pointer mt-3 mt-xl-0" >
                   <div class="card text-center shadow"data-bs-toggle="modal" data-bs-target="#powerfailureModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1 text-body-tertiary"><i class="bi bi-power h4"></i> Input Power Fail</p>
@@ -86,7 +86,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-xl-3 col-6 mt-3 mt-xl-0">
+                <div class="col-xl-3 col-6 pointer mt-3 mt-xl-0">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#faultModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1 text-danger"><i class="bi bi-bug-fill h4"></i> Faulty</p>
@@ -100,7 +100,7 @@ SessionManager::checkSession();
 
             <div class="col-12 rounded mt-3 p-0">
               <div class="row">
-                <div class="col-4">
+                <div class="col-4 pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#AutoOnModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1"> <i class="bi bi-clock-fill h4"></i> Auto/System On</p>
@@ -109,7 +109,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#manualOnModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1">  <i class="bi bi-hand-index-fill h4"></i> Manual On</p>
@@ -118,7 +118,7 @@ SessionManager::checkSession();
                     </div>
                   </div>
                 </div>
-                <div class="col-4">
+                <div class="col-4 pointer">
                   <div class="card text-center shadow" data-bs-toggle="modal" data-bs-target="#offModal">
                     <div class="card-body m-0 p-0">
                       <p class="card-text fw-semibold m-0 py-1"> <i class="bi bi-toggle-off h4"></i> OFF</p>
@@ -204,7 +204,7 @@ SessionManager::checkSession();
 
           </div>
         </div>
-        <div class="col-lg-5 ">
+        <div class="col-lg-4 ">
           <div class="row ps-0 ps-lg-2 h-100">
             <div class="col-12 rounded mt-4 mt-lg-2 p-0">
               <div class="card bg-light-subtle shadow">
@@ -319,6 +319,7 @@ SessionManager::checkSession();
     </div>
   </div>
 </div>
+
 <?php
 include(BASE_PATH."dashboard/dashboard_modals.php");
 ?>

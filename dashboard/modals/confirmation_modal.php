@@ -1,4 +1,4 @@
-<div class="modal fade" id="confirmActionModal" tabindex="-1" aria-labelledby="confirmActionModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirmActionModal" tabindex="-1" aria-labelledby="confirmActionModalLabel" aria-hidden="true" style="background-color:rgb(0,0,0,0.8)">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
