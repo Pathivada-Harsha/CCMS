@@ -67,7 +67,7 @@ function get_data() {
 
 
 function update_data_table(device_id, records, selected_alert, start_date, end_date ){
-
+console.log(device_id);
     $.ajax({
         type: "POST",
         url: '../alerts/code/alert_table.php',

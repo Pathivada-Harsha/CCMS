@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['DEVICES'])) {
 
 
     // Database connection
-		$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, DB_ALL);
+		$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, Bems_ALL);
 
 		if (!$conn_db_all) {
 			sendResponse(['success' => false, 'message' => 'Database connection error.']);
@@ -89,12 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['DEVICES'])) {
 		}
 
 
-
-
-
-
     // Prepare the SQL query
-		$query = "INSERT INTO live_data_updates (device_id, installed_status, installed_date) 
+		$query = "INSERT INTO live_data_updates(device_id, installed_status, installed_date) 
 		VALUES (?, $update_status, ?) 
 		ON DUPLICATE KEY UPDATE installed_status = $update_status, installed_date = VALUES(installed_date)";
 

@@ -14,6 +14,20 @@
 			</li>
 		<?php endif; ?>
 
+		<li>
+			<a href="" class="nav-link btn-toggle collapsed"  data-bs-toggle="collapse" data-bs-target="#energyAudit" aria-expanded="false">
+			<i class="bi bi-lightning-charge"></i>
+
+				Energy Audit
+			</a> 	
+			<div class="collapse " id="energyAudit">
+				<ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small px-3">
+					<li><a href="energy-audit2.php" class="nav-link link-body-emphasis d-inline-flex text-decoration-none rounded active_dp"><i class="bi bi-arrow-return-right"></i>Energy Audit Data</a></li>
+					<li><a href="addnewtransformer1.php" class="nav-link link-body-emphasis d-inline-flex text-decoration-none rounded"><i class="bi bi-arrow-return-right"></i>Add New Transformer</a></li>
+				</ul>
+			</div>
+		</li>
+
 		<?php if (hasPermission('devices_list', $menu_list)): ?>
 			<li>
 				<a href="device-list.php" class="nav-link link-body-emphasis">
@@ -24,12 +38,12 @@
 		<?php endif; ?>
 
 		<?php if (hasPermission('onoff_control', $menu_list)): ?>
-			<li>
+			<!-- <li>
 				<a href="on-off-control.php" class="nav-link link-body-emphasis">
 					<i class="bi bi-toggles"></i>
 					On/Off Control
 				</a>
-			</li>
+			</li> -->
 		<?php endif; ?>
 
 		<?php if (hasPermission('gis_map', $menu_list)): ?>
@@ -46,6 +60,14 @@
 				<a href="data-report.php" class="nav-link link-body-emphasis">
 					<i class="bi bi-table"></i>
 					Data Report
+				</a>
+			</li>
+		<?php endif; ?>
+		<?php if (hasPermission('data_report', $menu_list)): ?>
+			<li>
+				<a href="energy-consumption.php" class="nav-link link-body-emphasis">
+					<i class="bi bi-list-ol"></i>
+					Energy Consumption
 				</a>
 			</li>
 		<?php endif; ?>
@@ -113,7 +135,7 @@
 <?php endif; ?>
 
 <?php if (hasPermission('up_down_time', $menu_list) || hasPermission('glowing_time', $menu_list)): ?>
-<li>
+<!-- <li>
 	<a href="#" class="nav-link btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#devicestatus" aria-expanded="false">
 		<i class="bi bi-device-ssd"></i>
 		Device Status
@@ -128,7 +150,7 @@
 			<?php endif; ?>
 		</ul>
 	</div>
-</li>
+</li> -->
 <?php endif; ?>
 
 <?php if (hasPermission('user_activity', $menu_list)): ?>

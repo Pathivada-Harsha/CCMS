@@ -45,12 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$device_id = filter_input(INPUT_POST, 'DEVICE_ID', FILTER_SANITIZE_STRING); 
 
     // Connect to the database using procedural mysqli
-	$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, DB_ALL);
+	$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, Bems_ALL);
 	if (!$conn_db_all) {
 		die("Connection failed: " . mysqli_connect_error());
 	} else {
         // Prepare SQL statement based on the device status
-		$sql = "SELECT device_id, voltage_ph1, voltage_ph2, voltage_ph3, current_ph1, current_ph2, current_ph3, energy_kwh_total, energy_kvah_total, kw_total, kva_total, lights_wattage, total_lights, on_off_status, date_time, ping_time, kw_1, kw_2, kw_3 FROM live_data_updates WHERE device_id = ?";
+		//$sql = "SELECT device_id, voltage_ph1, voltage_ph2, voltage_ph3, current_ph1, current_ph2, current_ph3, energy_kwh_total, energy_kvah_total, kw_total, kva_total, on_off_status, date_time, ping_time, kw_1, kw_2, kw_3 FROM live_data_updates WHERE device_id = ?";
+		$sql = "SELECT device_id, voltage_ph1, voltage_ph2, voltage_ph3, current_ph1, current_ph2, current_ph3, energy_kwh_total, energy_kvah_total, lead_kwh_total, lead_kvah_total,  date_time, ping_time,kw_5_avg, kw_10_avg, kw_15_avg FROM live_data_updates WHERE device_id = ?";
 
         // Use prepared statement to execute the query
 		$stmt = mysqli_prepare($conn_db_all, $sql);
@@ -76,46 +77,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             	$current_ph3 = $r['current_ph3'];
             	$energy_kwh_total = $r['energy_kwh_total'];
             	$energy_kvah_total = $r['energy_kvah_total'];
-            	$kw_total = $r['kw_total'];
-            	$kva_total = $r['kva_total'];
-            	$lights_wattage = $r['lights_wattage'];
-            	$total_lights = $r['total_lights'];
-            	$on_off_status = $r['on_off_status'];
-            	$kw_1 = $r['kw_1'];
-            	$kw_2 = $r['kw_2'];
-            	$kw_3 = $r['kw_3'];
+            	$kw_total = $r['lead_kwh_total'];
+            	$kva_total = $r['lead_kvah_total'];
+            	
+            	$kw_1 = $r['kw_5_avg'];
+            	$kw_2 = $r['kw_10_avg'];
+            	$kw_3 = $r['kw_15_avg'];
 
 
-                // Handle on_off_status display
-            	switch ($on_off_status) {
-            		case "1":
-            		$on_off_status = "<span class='text-success fw-semibold'>Auto ON</span>";
-            		break;
-            		case "3":
-            		$on_off_status = "<span class='text-success fw-semibold'>Server ON</span>";
-            		break;
-            		case "4":
-            		$on_off_status = "<span class='text-success fw-semibold'>WiFi ON</span>";
-            		break;
-            		case "5":
-            		$on_off_status = "<span class='text-info-emphasis fw-semibold'>Manual ON</span>";
-            		break;
-            		case "6":
-            		$on_off_status = "<span class='text-danger fw-semibold'>SERVER OFF</span>";
-            		break;
-            		case "7":
-            		$on_off_status = "<span class='text-danger fw-semibold'>WiFi OFF</span>";
-            		break;
-            		case "0":
-            		default:
-            		$on_off_status = "<span class='text-danger fw-semibold'>OFF</span>";
-            		break;
-            	}
-            } else {
-                // No devices found
-            	$return_response = "Devices Not Found";
-            }
-
+			}
             // Close statement
             mysqli_stmt_close($stmt);
         } else {
@@ -128,26 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $off_lights = "--";
 
         if ($update_data) {
-        	if ($lights_wattage > 0 && $kw_total > 100 && $total_lights > 0) {
-        		$on_lights = 0;
-        		$off_lights = 0;
-
-        		$load = $kw_total;
-        		$on_lights = ($load / $lights_wattage) * 100;
-
-        		$off_lights = round((100 - $on_lights), 2);
-        		if ($off_lights < 0) {
-        			$off_lights = 0;
-        		}
-
-        		if ($on_lights > 100) {
-        			$on_lights = 100;
-        			$off_lights = 0;
-        		}
-
-        		$on_lights = round($on_lights, 2);
-        		$off_lights = round($off_lights, 2);
-        	}
+        	
 
         	$return_response = array(
         		"V_PH1" => $voltage_ph1,
@@ -160,10 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         		"KVAH" => $energy_kvah_total,
         		"KW" => $kw_total,
         		"KVA" => $kva_total,
-        		"LIGHTS" => $total_lights,
-        		"LIGHTS_ON" => $on_lights,
-        		"LIGHTS_OFF" => $off_lights,
-        		"ON_OFF_STATUS" => $on_off_status,
+        		
         		"DATE_TIME" => $frame_date_time,
         		"KW_R" => $kw_1,
         		"KW_Y" => $kw_2,

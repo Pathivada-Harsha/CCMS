@@ -91,7 +91,9 @@ if($credentials_check)
 
 
 			require("../common-files/client-super-admin-device-names.php");
+
 			$sql = "SELECT $list FROM user_device_list WHERE login_id = ? ORDER BY LENGTH(device_id), device_id";
+
 			$stmt = mysqli_prepare($conn, $sql);
 			mysqli_stmt_bind_param($stmt, "i", $login_id);
 
@@ -125,9 +127,8 @@ if($credentials_check)
 			mysqli_stmt_fetch($stmt);
 			mysqli_stmt_close($stmt);
 
-			//$sql_group_list = "SELECT `device_group_or_area` AS `group_list` FROM device_list_by_group WHERE login_id = ? GROUP BY device_group_or_area ORDER BY device_group_or_area";
-		echo 	$sql_group_list = "SELECT `$group_by_column` AS `group_list`  FROM device_list_by_group  WHERE login_id = ?  GROUP BY `$group_by_column` ORDER BY `$group_by_column`";
-		echo "\n";
+			
+		$sql_group_list = "SELECT main_device_id as device_id,main_device_name as device_name FROM main_supply_devices WHERE login_id = ? ORDER BY LENGTH(device_id), device_id";
 
 			$stmt = mysqli_prepare($conn, $sql_group_list);
 			mysqli_stmt_bind_param($stmt, "i", $login_id);
@@ -136,7 +137,7 @@ if($credentials_check)
 				$results = mysqli_stmt_get_result($stmt);
 				if (mysqli_num_rows($results) > 0) {
 					while ($r = mysqli_fetch_assoc($results)) {
-						$group_list[] = array("GROUP" => strtoupper($r['group_list']));
+						$group_list[] = array("GROUP" => strtoupper($r['device_id']));
 					}
 				}
 			}

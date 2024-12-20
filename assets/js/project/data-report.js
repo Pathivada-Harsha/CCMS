@@ -174,6 +174,8 @@ function update_data_table(device_id, records, searched_date ){
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			$("#pre-loader").css('display', 'none');
+		
+			console.log(errorThrown);
 			error_message_text.textContent="Error getting the data";
 			error_toast.show();
 		}
@@ -181,7 +183,7 @@ function update_data_table(device_id, records, searched_date ){
 }
 
 function update_all_group_data_table(){
-
+console.log("checkind box");
 	$.ajax({
 		type: "POST",
 		url: '../data-report/code/all-group-data.php',

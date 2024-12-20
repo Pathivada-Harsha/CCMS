@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$user_devices= substr($user_devices, 0, -1);
 	}
 
-	$conn_db_all = mysqli_connect(HOST,USERNAME,PASSWORD, DB_ALL);
+	$conn_db_all = mysqli_connect(HOST,USERNAME,PASSWORD, Bems_ALL);
 	if (!$conn_db_all) {
 		die("Connection failed: " . mysqli_connect_error());
 	}
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$installation_status="";
 		$installed_lights=0;
 
-		$sql = "SELECT  active_device, device_id, date_time , unit_capacity, installed_date, installed_status, location, active_device, poor_network, faulty, power_failure, on_off_status, operation_mode, total_lights FROM live_data_updates where device_id IN ($user_devices)";
+		$sql = "SELECT  active_device, device_id, date_time , unit_capacity, installed_date, installed_status, location, active_device, poor_network, faulty, power_failure FROM live_data_updates where device_id IN ($user_devices)";
 		$status=0;
 		if(mysqli_query($conn_db_all, $sql))
 		{
@@ -62,8 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$device_id=$r['device_id'];					
 					$status=$r['active_device'];
 					$unit_capacity=$r['unit_capacity'];
-					$operation_mode=$r['operation_mode'];
-					$installed_lights=$r['total_lights'];
+					
 
 
 					if($r['location']!='0,0'&& strpos($r['location'], "0000000,000000") === false)
@@ -109,46 +108,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-					$on_off_status = $r['on_off_status'];
-
-
-					if ($on_off_status == "1")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-info-emphasis py-1 px-2 rounded'>Auto ON</span>";
-					}
-					else if ($on_off_status == "2")
-					{
-						$on_off_status="Power Fail";
-					}
-					else if ($on_off_status == "3")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-success py-1 px-2 rounded'> Server ON</span>";
-					}
-					else if ($on_off_status == "4")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-success py-1 px-2 rounded'> Wifi ON</span>";
-					}
-					else if ($on_off_status == "5")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-info-emphasis py-1 px-2 rounded'> Manual ON</span>";
-					}
-					else if ($on_off_status == "6")
-					{						
-						$on_off_status="<span class='text-white fw-semibold bg-danger py-1 px-2 rounded'> SERVER OFF</span>";
-					}
-
-					else if ($on_off_status == "7")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-danger py-1 px-2 rounded'> WIFI OFF</span>";
-					}
-					else if ($on_off_status == "0")
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-danger py-1 px-2 rounded'> OFF</span>";
-					}
-					else
-					{
-						$on_off_status="<span class='text-white fw-semibold bg-danger py-1 px-2 rounded'> OFF</span>";
-					}
 					$name=$device_id;
 
 					foreach ($device_list as $device) {
@@ -159,21 +118,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 							$name= $device['D_NAME'];						
 						}
 					}
-					$installed_lights ='<button class="btn btn-info btn-sm p-0 px-2" onclick=openLightsModal("'.$device_id.'","'.$name.'")>'.$installed_lights.'</button>';
 					
 					if($installation_date==""||$installation_date==null)
 					{
 						$installation_date='<button class="address_update btn btn-primary pt-0 pb-0" onclick=update_installation_date("'.$device_id.'","'.$name.'")>Update</button>';
 
 					}
-					/*else
-					{
-						$installation_date=$installation_date.'<a class="edit pl-3 pb-0" title="Edit" data-toggle="tooltip" onclick=update_installation_date("'.$device_id.'","'.$name.'")><i class="fa fa-pencil text-primary mr-2" style="font-size:20px ;cursor: pointer;" aria-hidden="true"></i></a>';
+					
 
-					}*/
-
-
-					$send[]=array("D_ID"=> $device_id, "D_NAME"=> $name , "INSTALLED_STATUS"=>$installation_status, "INSTALLED_DATE"=>$installation_date, "KW"=>$unit_capacity, "ACTIVE_STATUS"=>$status, "DATE_TIME"=>$date, "WORKING_STATUS"=>$device_status, "ON_OFF_STATUS"=>$on_off_status, "OPERATION_MODE"=>$operation_mode, "LMARK"=>$address,"INSTALLED_LIGHTS"=>$installed_lights, "REMOVE"=>$device_id);
+					$send[]=array("D_ID"=> $device_id, "D_NAME"=> $name , "INSTALLED_STATUS"=>$installation_status, "INSTALLED_DATE"=>$installation_date, "KW"=>$unit_capacity, "ACTIVE_STATUS"=>$status, "DATE_TIME"=>$date, "WORKING_STATUS"=>$device_status, "LMARK"=>$address, "REMOVE"=>$device_id);
 
 				}
 			}
@@ -189,7 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$sql = "SELECT * FROM live_data_updates WHERE device_id IN ($user_devices) ORDER BY LENGTH(device_id), device_id";
 		$available_devices = [];
 		if ($result = mysqli_query($conn_db_all, $sql)) {
-			if (mysqli_num_rows($result) > 0) {
+			if (mysqli_num_rows($result) > 0) { 
 				while ($row = mysqli_fetch_assoc($result)) {
 					$available_devices[] = $row['device_id'];
 				}
@@ -217,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					}
 				}
 
-				$send[]=array("D_ID"=> $device_id, "D_NAME"=> $name , "INSTALLED_STATUS"=>"--", "INSTALLED_DATE"=>"--", "KW"=>"--", "ACTIVE_STATUS"=>$status, "DATE_TIME"=>"--", "WORKING_STATUS"=>"--", "ON_OFF_STATUS"=>"--", "OPERATION_MODE"=>"--", "LMARK"=>"--","INSTALLED_LIGHTS"=>"--", "REMOVE"=>$device_id);
+				$send[]=array("D_ID"=> $device_id, "D_NAME"=> $name , "INSTALLED_STATUS"=>"--", "INSTALLED_DATE"=>"--", "KW"=>"--", "ACTIVE_STATUS"=>$status, "DATE_TIME"=>"--", "WORKING_STATUS"=>"--",  "LMARK"=>"--", "REMOVE"=>$device_id);
 			}
 		}
 

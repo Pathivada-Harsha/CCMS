@@ -22,7 +22,8 @@ var group="";
 var modal_event=0;
 
 let group_list = document.getElementById('group-list');
-var group_name=localStorage.getItem("GroupNameValue")
+var group_name=localStorage.getItem("GroupNameValue");
+
 if(group_name==""||group_name==null)
 {
 	group_name= group_list.value;
@@ -34,7 +35,7 @@ group_list.addEventListener('change', function() {
 });
 
 function gps_initMaps(group_name) {
-
+	console.log(group_name);
 	$("#loader").css('display', 'block');
 	$(function () {
 		$.ajax({
@@ -46,12 +47,17 @@ function gps_initMaps(group_name) {
 			success:  function(data){
 				$("#loader").css('display', 'none');
 				on_success(data);
+				console.log(data);
+				
 			},
 			failure: function (response) {
 				alert(response.responseText);
+				console.log(response.devices);
+				console.log(response.responseText);
 			},
 			error: function (response) {
 				alert(response.responseText);
+				console.log(response.responseText);
 			}
 		});
 	});

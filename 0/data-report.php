@@ -30,7 +30,7 @@ SessionManager::checkSession();
 							<div class="col-auto me-auto "><label><input type="checkbox" id="view_all_group_device"> View All</label> </div>
 							<div class="col-auto">
 								<div class="input-group">
-									<input type="date" class="form-control" aria-label="date" id="search_date" value="yyyy-mm-dd" aria-describedby="button-addon2">
+									<input type="date" class="form-control" aria-label="date" id="search_date" value="yyyy-MM-dd" aria-describedby="button-addon2">
 									<button class="btn btn-primary" type="button" onclick="search_records()">Search</button>
 								</div>
 							</div>
@@ -44,7 +44,7 @@ SessionManager::checkSession();
 								<tr class="header-row-1">
 									<th class="table-header-row-1"></th>
 									<th class="table-header-row-1 col-size-1" >Updated at</th>
-									<th class="table-header-row-1">ON/OFF Status</th>
+									<!-- <th class="table-header-row-1">ON/OFF Status</th> -->
 									<th class="table-header-row-1" colspan="3">Phase Voltages (Volts)</th>
 									<th class="table-header-row-1" colspan="3">Phase Currents (Amps)</th>
 									<th class="table-header-row-1" colspan="4">KW</th>
@@ -60,7 +60,7 @@ SessionManager::checkSession();
 
 									<th class="table-header-row-2">Device Id</th>
 									<th class="table-header-row-2 col-size-1"></th>
-									<th class="table-header-row-2"></th>
+									<!-- <th class="table-header-row-2"></th> -->
 									<th class="table-header-row-2">R</th>
 									<th class="table-header-row-2">Y</th>
 									<th class="table-header-row-2">B</th>

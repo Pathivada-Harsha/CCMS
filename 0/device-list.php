@@ -2,7 +2,7 @@
 require_once 'config-path.php';
 require_once '../session/session-manager.php';
 SessionManager::checkSession();
-$sessionVars =SessionManager::SessionVariables();
+$sessionVars = SessionManager::SessionVariables();
 
 $mobile_no = $sessionVars['mobile_no'];
 $user_id = $sessionVars['user_id'];
@@ -11,10 +11,11 @@ $role = $sessionVars['role'];
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
+
 <head>
     <title>Device List</title>
     <?php
-    include(BASE_PATH."assets/html/start-page.php");
+    include(BASE_PATH . "assets/html/start-page.php");
     ?>
     <div class="d-flex flex-column flex-shrink-0 p-3 main-content ">
         <div class="container-fluid">
@@ -24,7 +25,7 @@ $role = $sessionVars['role'];
                 </div>
             </div>
             <?php
-            include(BASE_PATH."dropdown-selection/device-list.php");
+            include(BASE_PATH . "dropdown-selection/device-list.php");
             ?>
 
             <div class="row justify-content-end align-items-center mt-3 p-0">
@@ -37,7 +38,8 @@ $role = $sessionVars['role'];
                     </div>
                 </div>
                 <div class="col-auto p-0 mb-2 ms-2">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDeviceModal">
+                    <button type="button" class="btn btn-primary"
+                        onclick="window.location.href='addnewtransformer1.php';">
                         Add Device
                     </button>
                 </div>
@@ -54,11 +56,11 @@ $role = $sessionVars['role'];
                                     <th class="table-header-row-1">Installed Date</th>
                                     <th class="table-header-row-1">Capacity(kW)</th>
                                     <th class="table-header-row-1 col-size-1">Last Update</th>
-                                    <th class="table-header-row-1">On/Off Status</th>
-                                    <th class="table-header-row-1">Operation Mode</th>
-                                    <th class="table-header-row-1">Active Status</th>
+                                    <!-- <th class="table-header-row-1">On/Off Status</th>
+                                    <th class="table-header-row-1">Operation Mode</th>-->
+                                    <th class="table-header-row-1">Active Status</th> 
                                     <th class="table-header-row-1">Location</th>
-                                    <th class="table-header-row-1">Installed Lights</th>
+                                    <!-- <th class="table-header-row-1">Installed Lights</th> -->
                                     <th class="table-header-row-1">Actions</th>
                                 </tr>
                             </thead>
@@ -72,18 +74,19 @@ $role = $sessionVars['role'];
                 </div>
             </div>
         </div>
-    </div></div>
-</div>
-<?php
-include(BASE_PATH."device-list/html/add_device.php");
-include(BASE_PATH."device-list/html/installedlights.php");
-include(BASE_PATH."device-list/html/addlight.php");
-?>
-</main>
-<script src="<?php echo BASE_PATH;?>assets/js/sidebar-menu.js"></script>
-<script src="<?php echo BASE_PATH;?>assets/js/project/device-list.js"></script>
-<script src="<?php echo BASE_PATH;?>js_modal_scripts/searchbar.js"></script>
-<?php
-include(BASE_PATH."assets/html/body-end.php");
-include(BASE_PATH."assets/html/html-end.php");
-?>
+    </div>
+    </div>
+    </div>
+    <?php
+    include(BASE_PATH . "device-list/html/add_device.php");
+    include(BASE_PATH . "device-list/html/installedlights.php");
+    include(BASE_PATH . "device-list/html/addlight.php");
+    ?>
+    </main>
+    <script src="<?php echo BASE_PATH; ?>assets/js/sidebar-menu.js"></script>
+    <script src="<?php echo BASE_PATH; ?>assets/js/project/device-list.js"></script>
+    <script src="<?php echo BASE_PATH; ?>js_modal_scripts/searchbar.js"></script>
+    <?php
+    include(BASE_PATH . "assets/html/body-end.php");
+    include(BASE_PATH . "assets/html/html-end.php");
+    ?>

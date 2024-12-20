@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$placeholders = implode(',', array_fill(0, count($user_devices_array), '?'));
 
     // Connect to the database using procedural mysqli
-	$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, DB_ALL);
+	$conn_db_all = mysqli_connect(HOST, USERNAME, PASSWORD, Bems_ALL);
 	if (!$conn_db_all) {
 		die("Connection failed: " . mysqli_connect_error());
 	} else {

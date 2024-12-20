@@ -8,8 +8,9 @@ if($ip_address=="::1")
 	define('USERNAME', 'root');
 	define('PASSWORD','123456');
 	
-	define('DB_USER', 'new_ccms_user_db');
-	define('DB_ALL', 'new_ccms_all');
+	define('DB_USER', 'new_bems_user_db');
+	define('DB_ALL', 'new_bems_all');
+	define('Bems_ALL', 'new_bems_all');
 
 }
 else

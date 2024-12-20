@@ -12,38 +12,7 @@
                             <p class="m-0"><span class="text-body-tertiary">Updated On : </span><span id="record_date_time"></span></p>
                         </div>
                         
-                        <div class="col-xl-3 col-6">
-                            <div class="card text-center shadow">
-                                <div class="card-body m-0 p-0">
-                                    <p class="card-text fw-semibold m-0 py-1"><i class="bi bi-lightbulb-fill h4"></i> Total Lights</p>
-                                    <h3 class="card-title py-2" id="total_light">--</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6">
-                            <div class="card text-center shadow">
-                                <div class="card-body m-0 p-0">
-                                    <p class="card-text fw-semibold m-0 py-1 "><i class="bi bi-power h4"></i>ON(%)</p>
-                                    <h3 class="card-title py-2" id="on_percentage">--</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3 mt-xl-0" >
-                            <div class="card text-center shadow">
-                                <div class="card-body m-0 p-0">
-                                    <p class="card-text fw-semibold m-0 py-1 "><i class="bi bi-power h4"></i>OFF(%)</p>
-                                    <h3 class="card-title py-2 "id="off_percentage">--</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-6 mt-3 mt-xl-0">
-                            <div class="card text-center shadow" >
-                                <div class="card-body m-0 p-0">
-                                    <p class="card-text fw-semibold m-0 py-1 "><i class="bi bi-lightning-fill h4"></i> On/Off Status</p>
-                                    <h3 class="card-title py-2" id="on_off_status">--</h3>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

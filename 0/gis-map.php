@@ -28,12 +28,12 @@ SessionManager::checkSession();
               <div id="map" style="height: 650px; width: 100%;"></div>
             </div>
             <div class="col-12 mt-2">
-
+<!-- 
               <small>* <i class="bi bi-geo-alt-fill text-danger h5" aria-hidden="true" ></i> Lights are Turned OFF  </small>
               <small>* <i class="bi bi-geo-alt-fill text-success h5" aria-hidden="true" ></i> Lights are turned ON  </small>
               <small>* <i class="bi bi-geo-alt-fill text-warning h5" aria-hidden="true" ></i> Poor Network Units    </small>
               <small>* <i class="bi bi-geo-alt-fill text-purple h5" aria-hidden="true" ></i> Communication Loss Units    </small>
-              <small>* <i class="bi bi-geo-alt-fill text-primary h5" aria-hidden="true" ></i> Power Fail Units    </small>
+              <small>* <i class="bi bi-geo-alt-fill text-primary h5" aria-hidden="true" ></i> Power Fail Units    </small> -->
 
             </div>
 

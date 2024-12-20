@@ -3,5 +3,5 @@
   <?php
   include("group-list.php");
   ?>
-  <option value="UNGROUPED" >UNGROUPED</option>
+  <!-- <option value="UNGROUPED" >UNGROUPED</option> -->
 </select>

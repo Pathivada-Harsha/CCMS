@@ -1,20 +1,34 @@
 var group_name=localStorage.getItem("GroupNameValue")
+//console.log(group_name);
 if(group_name==""||group_name==null)
 {
+    
 	group_name="ALL";
+    //console.log(group_name);
 }
 if (group_name !== "" && group_name !== null) {
+    //console.log(group_name);
 	update_switchPoints_status(group_name);
 	update_alerts(group_name);
 	$("#pre-loader").css('display', 'block');
 }
 
-
 let group_list = document.getElementById('group-list');
 
 group_list.addEventListener('change', function() {
+    
+    $("#total_devices").text(0);
+    $("#installed_devices").text(0);
+    $("#not_installed_devices").text(0);
+    $("#active_devices").text(0);
+    $("#poornetwork").text(0);
+    $("#input_power_fail").text(0);
+    $("#faulty").text(0);
+   
 	let group_name = group_list.value;
+    //console.log(group_name);
 	if (group_name !== "" && group_name !== null) {
+
 		update_switchPoints_status(group_name);
 		update_alerts(group_name);
 		$("#pre-loader").css('display', 'block');
@@ -22,7 +36,7 @@ group_list.addEventListener('change', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    refresh_data(); 
+    //refresh_data(); 
 });
 setInterval(refresh_data, 20000);
 function refresh_data() {
@@ -38,7 +52,10 @@ function refresh_data() {
 }
 
 
+
+
 function update_switchPoints_status(group_id){
+    console.log(group_id);
 	$.ajax({
             type: "POST", // Method type
             url: "../dashboard/code/switchpoint_details.php", // PHP script URL
@@ -47,48 +64,29 @@ function update_switchPoints_status(group_id){
             },
             dataType: "json", // Expected data type from PHP script
             success: function(response) {
-                // Update HTML elements with response data
-            	$("#total_devices").text(response.TOTAL_UNITS);
-            	$("#installed_devices").text(response.SWITCH_POINTS);
-            	$("#not_installed_devices").text(response.UNISTALLED_UNITS);
-            	$("#active_devices").text(response.ACTIVE_SWITCH);
-            	$("#poornetwork").text(response.POOR_NW);
-            	$("#input_power_fail").text(response.POWER_FAILURE);
-            	$("#faulty").text(response.FAULTY_SWITCH);
-            	$("#auto_on").text(response.ON_UNITS);
-            	$("#manual_on").text(response.MANUAL_ON);
-            	$("#off").text(response.OFF);
-            	$("#installed_lights").text(response.TOTAL_LIGHTS);
-            	$("#installed_lights_on").text(response.ON_LIGHTS);
-            	$("#installed_lights_off").text(response.OFF_LIGHT);
-            	$("#installed_load").text("Installed Lights Load = "+response.INSTALLED_LOAD);
-            	$("#active_load").text(response.ACTIVE_LOAD);
-            	$("#total_consumption_units").text(response.KWH);
-            	$("#energy_saved_units").text(response.SAVED_UNITS);
-            	$("#amount_saved").text(response.SAVED_AMOUNT);
-            	$("#co2_saved").text(response.SAVED_CO2);
+              console.log("heloo:  "+ " "+response.user_devices); // Logging user_devices from the response
+            
+                //Update HTML elements with response data
+                $("#total_devices").text(response.TOTAL_UNITS);
+                $("#installed_devices").text(response.SWITCH_POINTS);
+                $("#not_installed_devices").text(response.UNINSTALLED_UNITS); // Corrected from UNISTALLED_UNITS
+                $("#active_devices").text(response.ACTIVE_SWITCH);
+                $("#poornetwork").text(response.POOR_NW);
+                $("#input_power_fail").text(response.POWER_FAILURE);
+                $("#faulty").text(response.FAULTY_SWITCH);
+            
+            
 
-
-            	var totalLights = response.TOTAL_LIGHTS;
-            	var onLights = response.ON_LIGHTS;
-            	var offLights = response.OFF_LIGHT;
+            	
 
             	var activeLoad = response.ACTIVE_LOAD; // Assuming this key exists in your JSON response
                 var installedLoad = response.INSTALLED_LOAD; // Assuming this key exists in your JSON response
 
                 // Calculate the percentage for the active load
-                if(installedLoad>0)
                 var activeLoadPercentage = (activeLoad / installedLoad) * 100;
 
                 // Update progress bar for installed lights ON
-                $('#installed_lights_on').css('width', onLights + '%');
-                $('#installed_lights_on').attr('aria-valuenow', onLights);
-                $('#installed_lights_on').text(onLights + '%-ON');
-
-                // Update progress bar for installed lights OFF
-                $('#installed_lights_off').css('width', offLights + '%');
-                $('#installed_lights_off').attr('aria-valuenow', offLights);
-                $('#installed_lights_off').text(offLights + '%-OFF');
+              
 
                 // Update progress bar for active load
                 $('#active_load').css('width', activeLoadPercentage + '%');
@@ -96,6 +94,11 @@ function update_switchPoints_status(group_id){
                 $('#active_load').text('Active - ' + activeLoad);
             },
             error: function(xhr, status, error) {
+                if(true)
+                    {
+                        //console.log("hi");
+    
+                    }
             	console.error("AJAX Error:", status, error);
             	$("#pre-loader").css('display', 'none');
             }
@@ -104,7 +107,7 @@ function update_switchPoints_status(group_id){
 
 
 function update_alerts(group_id){
-
+console.log("alerts:"+group_id);
 	$.ajax({
             type: "POST", // Method type
             url: "../dashboard/code/update_alerts.php", // PHP script URL
@@ -282,29 +285,10 @@ function installed_devices_status(group_id, status)
 }
 
 
-document.getElementById('auto_on_devices_list').onclick = function() {
-
-    let group_id = group_list.value;
-    if (group_id !== "" && group_id !== null) {     
-        active_device_status( group_id, "ON_LIGHTS")
-    }
-};
 
 
-document.getElementById('off_devices_list').onclick = function() {
 
-    let group_id = group_list.value;
-    if (group_id !== "" && group_id !== null) {     
-        active_device_status( group_id, "OFF_LIGHTS")
-    }
-};
-document.getElementById('manual_on_devices_list').onclick = function() {
 
-    let group_id = group_list.value;
-    if (group_id !== "" && group_id !== null) {     
-        active_device_status( group_id, "MANUAL_ON")
-    }
-};
 
 
 function active_device_status(group_id, status)
@@ -360,10 +344,10 @@ function openOpenviewModal(device_id) {
             },
             dataType: "json", // Expected data type from PHP script
             success: function(data) {
-               $('total_light').text(data.LIGHTS);     
-               $('#on_percentage').text(data.LIGHTS_ON);     
-               $('#off_percentage').text(data.LIGHTS_OFF);     
-               $('#on_off_status').html(data.ON_OFF_STATUS);    
+            //    $('total_light').text(data.LIGHTS);     
+            //    $('#on_percentage').text(data.LIGHTS_ON);     
+            //    $('#off_percentage').text(data.LIGHTS_OFF);     
+            //    $('#on_off_status').html(data.ON_OFF_STATUS);    
                $('#v_r').text(data.V_PH1);     
                $('#v_y').text(data.V_PH2);     
                $('#v_b').text(data.V_PH3);    
@@ -474,6 +458,7 @@ function confirmAction(action, selectedDeviceIds, tableId, selectedDevices) {
     const selectedDevicesJson = JSON.stringify(selectedDeviceIds);
     if(confirm("Please confirm ?"))
     {
+        
         $.ajax({
             type: "POST",
             url: "../dashboard/code/update_installation_status.php",
@@ -484,6 +469,7 @@ function confirmAction(action, selectedDeviceIds, tableId, selectedDevices) {
             },
             dataType: "json",
             success: function(response) {
+                console.log("success");
                 if (response.success) {
                     alert("Devices updated successfully!");
                     update_list(action, selectedDevices, tableId, actionDate);

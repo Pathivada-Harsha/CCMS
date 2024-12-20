@@ -25,68 +25,18 @@ $f20 = $r['frequency_ph3'];
 $ff2 = $r['signal_level'];
 $ff3 = $r['location'];
 
-$kw_1 = $r['kw_1'];
-$kw_2 = $r['kw_2'];
-$kw_3 = $r['kw_3'];
-$kw_total = $r['kw_total'];
-$kva_1 = $r['kva_1'];
-$kva_2 = $r['kva_2'];
-$kva_3 = $r['kva_3'];
-$kva_total = $r['kva_total'];
+$kw_1 = $r['kw_5_avg'];
+$kw_2 = $r['kw_10_avg'];
+$kw_3 = $r['kw_15_avg'];
+$kw_total = $r['kw_1_avg'];
+$kva_1 = $r['kva_5_avg'];
+$kva_2 = $r['kva_10_avg'];
+$kva_3 = $r['kva_15_avg'];
+$kva_total = $r['kva_1_avg'];
 
 
 $energy_kwh_total = $r['energy_kwh_total'];
 $energy_kvah_total = $r['energy_kvah_total'];
-
-$on_off_status = $r['on_off_status'];
-
-
-if ($on_off_status == "1")
-{
-	$on_off_status="ON";
-	$class_on_off_status=$green;
-}
-else if ($on_off_status == "2")
-{
-	$on_off_status="Power Fail";
-}
-else if ($on_off_status == "3")
-{
-	$on_off_status="SERVER ON";
-	$class_on_off_status=$green;
-}
-else if ($on_off_status == "4")
-{
-	$on_off_status="WIFI ON";
-	$class_on_off_status=$green;
-}
-else if ($on_off_status == "5")
-{
-	$on_off_status="MANUAL ON";
-	$class_on_off_status=$green;
-}
-else if ($on_off_status == "6")
-{
-	$on_off_status="SERVER OFF";
-	$class_on_off_status=$red;
-}
-
-else if ($on_off_status == "7")
-{
-	$on_off_status="WIFI OFF";
-	$class_on_off_status=$red;
-}
-else if ($on_off_status == "0")
-{
-	$on_off_status="OFF";
-	$class_on_off_status=$red;
-}
-
-else
-{
-	$on_off_status="OFF";
-	$class_on_off_status=$red;
-}
 
 
 //////  VOLTAGE COLOR Coding////////////
@@ -102,9 +52,10 @@ if($f8>=$c_max_y ){$class_ib=$red;}else{$class_ib=$normal;}
 
 
 $data.= "<tr >
-<td > $f1"."$d_name </td>
+<td > $f1
+</td>
 <td > $f2 </td>
-<td  $class_on_off_status > $on_off_status </td>
+
 <td  $class_r > $f3 </td>
 <td  $class_y > $f4 </td>
 <td  $class_b > $f5 </td>

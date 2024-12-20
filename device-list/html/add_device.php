@@ -25,7 +25,7 @@
                     </div> -->
                     <?php
                     $enable_diable='class="form-control"';
-                    if($role!=="SUPERADMIN")
+                    if($role=="SUPERADMIN")
                     {
                         ?>
                         <div class="mb-3">
